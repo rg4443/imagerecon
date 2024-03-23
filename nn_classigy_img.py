@@ -1,4 +1,4 @@
-# A neural network that can classify immages of clothing like shirts or sneakers
+# A neural network that can classify images of clothing like shirts or sneakers
 
 import tensorflow as tf
 
