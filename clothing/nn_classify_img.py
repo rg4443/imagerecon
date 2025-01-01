@@ -4,15 +4,15 @@ import tensorflow as tf
 
 # Helper libs
 import numpy as np
-import matplotlib.pyplot as plt # lib that does visual representation of data, (uses graphs to visulize math essentailly)
+import matplotlib.pyplot as plt # lib that does visual representation of data, (uses graphs to visualize math essentially)
 
 # Loads the fashion mnist dataset which is a dataset containing images of clothing like shirts, jackets, shoes, purses, etc...
 fashion_mnist = tf.keras.datasets.fashion_mnist
 
-# Comapres the images that the model outputs with the correct images to see if it is correct in its evaluation
+# Compares the images that the model outputs with the correct images to see if it is correct in its evaluation
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 
-# Class names that correspond to a label, used for plotting each image in a visulization graph
+# Class names that correspond to a label, used for plotting each image in a visualization graph
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
@@ -53,11 +53,11 @@ plt.show()
 # Using tf sequential model, do a process to each layer
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28)), # Scale the model processing to 28 x 28 1d array so 28*28 ( important step as it formats the other layers so that it processes correctly)
-    tf.keras.layers.Dense(128, activation='relu'), # Main process used by the model called the dense layer using relu activation gets inputs from first layer processes it, and outputs to the next layer ( using 128 nodes in this neural netwoerk )
+    tf.keras.layers.Dense(128, activation='relu'), # Main process used by the model called the dense layer using relu activation gets inputs from first layer processes it, and outputs to the next layer ( using 128 nodes in this neural network )
     tf.keras.layers.Dense(10) # Another dense layer to further improve the model, but without an activation model
 ])
 
-# Compliling the model using an optimizer called "adam" a default tf loss function, and scales the criteria of the model on a metric called "accuracy"
+# Compiling the model using an optimizer called "adam" a default tf loss function, and scales the criteria of the model on a metric called "accuracy"
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
